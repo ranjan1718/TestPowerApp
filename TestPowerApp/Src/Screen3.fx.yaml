@@ -1,0 +1,220 @@
+Screen3 As screen:
+    Fill: =RGBA(232, 232, 232, 1)
+
+    MainContainer As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =3
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container3 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(9, 33, 98, 1)
+            FillPortions: =0
+            Height: =Parent.Height/10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            ZIndex: =1
+
+            "Icon2 As icon.'3DPrinting'":
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =If(Screen3.Size = 1,30,Screen3.Size = 2 || Screen3.Size = 3, 50, 64)
+                Icon: =Icon.Printing3D
+                Width: =If(Screen3.Size = 1,30,Screen3.Size = 2 || Screen3.Size = 3, 50, 64)
+                ZIndex: =1
+
+            Label4 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =20
+                Text: ="Sorting Application"
+                ZIndex: =2
+
+            Image1 As image:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =If(Screen3.Size = 1,30,Screen3.Size = 2 || Screen3.Size = 3, 50, 64)
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Center
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =If(Screen3.Size = 1,30,Screen3.Size = 2 || Screen3.Size = 3, 50, 64)
+                ZIndex: =3
+
+        SubMainContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(206, 213, 235, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =Parent.Width-10
+            ZIndex: =2
+
+            Container1_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =60
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label2_7 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinWidth: =50
+                    Size: =15
+                    Text: ="Part"
+                    Width: =50
+                    ZIndex: =1
+
+                Label2_8 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinWidth: =50
+                    Size: =15
+                    Text: ="Additional Info"
+                    Width: =50
+                    ZIndex: =3
+
+                Label2_10 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinWidth: =50
+                    Size: =15
+                    Text: ="Color"
+                    Width: =50
+                    ZIndex: =5
+
+            Gallery1_1 As gallery.variableTemplateHeightGallery:
+                '#CopilotOverlayLabel': ="Filtered"
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DelayItemLoading: =true
+                Fill: =RGBA(250, 250, 250, 1)
+                Items: =SortByColumns(AddColumns('Parts Order',PartUser,PartUserPerLookup.Value),Gbl_ColumnName,If(Gbl_SortOrder,SortOrder.Ascending,SortOrder.Descending))
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =150
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =60
+                Transition: =Transition.Pop
+                Width: =Parent.Width
+                ZIndex: =2
+
+                Rectangle1_1 As rectangle:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Fill: =RGBA(227, 230, 232, 1)
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                Container4 As groupContainer.horizontalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Height: =Parent.TemplateHeight
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =6
+
+                    Label3_7 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        LayoutMinWidth: =50
+                        OnSelect: =
+                        Size: =13
+                        Text: |-
+                            =ThisItem.'Part#'
+                        Width: =50
+                        X: =102
+                        ZIndex: =1
+
+                    Label3_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        LayoutMinWidth: =50
+                        OnSelect: =
+                        Size: =13
+                        Text: =ThisItem.'Additional Info'
+                        Width: =Parent.Width/7
+                        X: =415
+                        ZIndex: =2
+
+                    Label3_10 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        LayoutMinWidth: =50
+                        OnSelect: =
+                        Size: =13
+                        Text: =ThisItem.Colour
+                        Width: =Parent.Width/7
+                        X: =913
+                        ZIndex: =3
+

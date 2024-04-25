@@ -1,0 +1,30 @@
+{
+  "5cdbe5de-af57-46fb-bc72-92df4b31763d": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1682/1.0.1682.3675/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://sigilotech.sharepoint.com/sites/PracticePurpose": {
+        "dataSources": {
+          "Parts Order": {
+            "tableName": "cdb64153-5c95-4509-b8e4-449b7b3d80e5"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Parts Order"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5cdbe5de-af57-46fb-bc72-92df4b31763d"
+  }
+}
